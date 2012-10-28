@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AppropViewController;
 
 @interface AppropAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (retain, nonatomic) AppropViewController *appropViewController;
+
 @property (strong, nonatomic) UIWindow *window;
+
 
 @end

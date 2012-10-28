@@ -7,19 +7,27 @@
 //
 
 #import "AppropAppDelegate.h"
+#import "AppropViewController.h"
+#import "SHKFacebook.h"
+#import "SHKConfiguration.h"
+#import "AppropSHKConfigurator.h"
 
 @implementation AppropAppDelegate
 
+@synthesize window = _window;
+@synthesize appropViewController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-    }
+  
+    // This configures ShareKit
+    DefaultSHKConfigurator *configurator = [[AppropSHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
+    
     return YES;
+    
 }
+    
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
