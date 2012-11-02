@@ -19,13 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  
     // This configures ShareKit
     DefaultSHKConfigurator *configurator = [[AppropSHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
-    
     return YES;
-    
 }
     
 							

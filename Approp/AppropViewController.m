@@ -7,20 +7,18 @@
 //
 
 #import "AppropViewController.h"
-#import "AppropReferenceController.h"
 #import "SHK.h"
 #import "SHKActionSheet.h"
 #import "SHKFacebook.h"
 #import "SHKItem.h"
 #import "AppropAppDelegate.h"
 
-@class AppropReferenceController;
 @interface AppropViewController()
 @end
 
 @implementation AppropViewController
 
-@synthesize imageView, actionSheet, shareSheet, popoverController, canvasButton, cameraButton, cameraRollButton, shareButton, referenceButton;
+@synthesize imageView, actionSheet, shareSheet, popoverController, canvasButton, cameraButton, cameraRollButton, shareButton;
 
 
 /*
@@ -34,31 +32,7 @@
 */
 
 - (void)viewDidAppear:(BOOL)animated
-{
-    // Setup Toolbar
-
-/*
-    self.cameraButton = [[UIBarButtonItem alloc] initWithTitle:@"Camera"
-                                                         style:UIBarButtonItemStyleBordered
-                                                        target:self
-                                                        action:@selector(useCamera:)];
-    self.cameraRollButton = [[UIBarButtonItem alloc] initWithTitle:@"Camera Roll"
-                                                             style:UIBarButtonItemStyleBordered
-                                                            target:self
-                                                            action:@selector(useCameraRoll:)];
-    self.canvasButton = [[UIBarButtonItem alloc] initWithTitle:@"Bckgrnd"
-                                                         style:UIBarButtonItemStyleBordered
-                                                        target:self.actionSheet
-                                                        action:@selector(useCanvasButton:)];
-    self.shareButton = [[UIBarButtonItem alloc] initWithTitle:@"Share"
-                                                        style:UIBarButtonItemStyleBordered
-                                                       target:self.shareSheet
-                                                       action:@selector(useShareButton:)];
-    self.referenceButton = [[UIBarButtonItem alloc] initWithTitle:@"Ref"
-                                                            style:UIBarButtonItemStyleBordered
-                                                           target:self
-                                                           action:@selector(useReferenceButton:)];
-*/   
+{   
     [super viewDidLoad];
 }
 
@@ -234,13 +208,14 @@ finishedSavingWithError:(NSError *)error
     [sharedSheet showFromBarButtonItem:sender animated:YES];
 }
 
+/*
 #pragma mark - Reference Button
 
 // Method for Reference Button
 -(IBAction) useReferenceButton: (id) sender {
     
 }
-
+*/
 
 
 #pragma mark: overandout
@@ -248,7 +223,6 @@ finishedSavingWithError:(NSError *)error
 - (void)viewDidUnload {
     self.imageView = nil;
     self.popoverController = nil;
-   // self.toolbar = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

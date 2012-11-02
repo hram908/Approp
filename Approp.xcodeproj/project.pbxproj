@@ -22,7 +22,6 @@
 		609D0FCE1632949800E08660 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609D0FCC1632949800E08660 /* MainStoryboard_iPhone.storyboard */; };
 		609D0FD11632949800E08660 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 609D0FCF1632949800E08660 /* MainStoryboard_iPad.storyboard */; };
 		609D0FD41632949800E08660 /* AppropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609D0FD31632949800E08660 /* AppropViewController.m */; };
-		609D0FD71632949800E08660 /* AppropReferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 609D0FD61632949800E08660 /* AppropReferenceController.m */; };
 		609D0FDF1632949800E08660 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609D0FDE1632949800E08660 /* SenTestingKit.framework */; };
 		609D0FE01632949800E08660 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609D0FB41632949700E08660 /* UIKit.framework */; };
 		609D0FE11632949800E08660 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609D0FB61632949700E08660 /* Foundation.framework */; };
@@ -339,8 +338,6 @@
 		609D0FD01632949800E08660 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		609D0FD21632949800E08660 /* AppropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppropViewController.h; sourceTree = "<group>"; };
 		609D0FD31632949800E08660 /* AppropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppropViewController.m; sourceTree = "<group>"; };
-		609D0FD51632949800E08660 /* AppropReferenceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppropReferenceController.h; sourceTree = "<group>"; };
-		609D0FD61632949800E08660 /* AppropReferenceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppropReferenceController.m; sourceTree = "<group>"; };
 		609D0FDD1632949800E08660 /* AppropTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppropTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		609D0FDE1632949800E08660 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		609D0FE61632949800E08660 /* AppropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppropTests-Info.plist"; sourceTree = "<group>"; };
@@ -493,8 +490,6 @@
 				609D0FD31632949800E08660 /* AppropViewController.m */,
 				6017CFD01644256400F9F4FB /* AppropRefController.h */,
 				6017CFD11644256400F9F4FB /* AppropRefController.m */,
-				609D0FD51632949800E08660 /* AppropReferenceController.h */,
-				609D0FD61632949800E08660 /* AppropReferenceController.m */,
 				609D0FBB1632949800E08660 /* Supporting Files */,
 			);
 			path = Approp;
@@ -929,7 +924,6 @@
 				609D0FC11632949800E08660 /* main.m in Sources */,
 				609D0FC51632949800E08660 /* AppropAppDelegate.m in Sources */,
 				609D0FD41632949800E08660 /* AppropViewController.m in Sources */,
-				609D0FD71632949800E08660 /* AppropReferenceController.m in Sources */,
 				6017CFD21644256400F9F4FB /* AppropRefController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
