@@ -68,6 +68,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-eR-m34">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NGk-bQ-3in" id="kSO-3h-BbN"/>
+                                    <outlet property="delegate" destination="NGk-bQ-3in" id="Epr-XZ-G5t"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJ0-W7-iH2">
                                 <items>
@@ -90,6 +94,9 @@
                             <constraint firstItem="QeN-eR-m34" firstAttribute="leading" secondItem="ptA-jV-xGn" secondAttribute="leading" type="default" id="yPN-qC-jVu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="ptA-jV-xGn" id="o7U-Tw-lSo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZI-Rp-Kwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

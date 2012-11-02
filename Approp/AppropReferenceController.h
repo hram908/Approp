@@ -11,11 +11,8 @@
 #import "AppropViewController.h"
 
 @interface AppropReferenceController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-{
-        IBOutlet UITableView *tableView;
-}
+
 @property (nonatomic, retain) NSArray *paintingsArray;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-
 
 @end

@@ -10,20 +10,7 @@
 #import "AppropViewController.h"
 #import "AppropAppDelegate.h"
 
-@interface AppropReferenceController()
-@end
-
 @implementation AppropReferenceController
-
-@synthesize paintingsArray;
-@synthesize tableView = _tableView;
-
-
--(void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview
-    [super didReceiveMemoryWarning];
-    
-}
 
 // Method to load the paintings array from the plist
 - (void)loadPaintings {
@@ -32,62 +19,22 @@
     [self.tableView reloadData];
 }
 
-
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if(self){
-        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     // Load the data from the plist
-    
     [self loadPaintings];
-    
-
     [super viewDidLoad];
 }
 
-// Method for the toolbar button
--(IBAction) usebackButton: (id) sender {
-    [self dismissModalViewControllerAnimated:YES];
-    
-}
-
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-   
-}
-
-
 #pragma mark - Table view data source
-
-// Increase the height of each cell a bit more than the default
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 68;
-}
-
-// Sections
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
 
 // Call the paintings.plist count to allocate the number of rows
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"number of rows = %d", self.paintingsArray.count);
+    //NSLog(@"number of rows = %d", self.paintingsArray.count);
     
     return self.paintingsArray.count;
-    
 }
 
 // Describe the cell and populate table
@@ -95,7 +42,7 @@
 indexPath {
     // Cell
     NSString *cellIdentifier = @"cellIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView1 dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:nil];
@@ -108,62 +55,33 @@ indexPath {
     UIImage *image = [UIImage imageNamed:[paintingsInfo objectForKey:@"image"]];
     cell.imageView.image = image;
     
+    
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"Accessory Section #%i Row #%i", indexPath.section, indexPath.row);
+}
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- 
- 
- #pragma mark - Table view delegate
- 
- - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Navigation logic may go here. Create and push another view controller.
- }
- 
- -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowsAtIndexPath:(NSIndexPath *)indexPath
- {
- return UITableViewCellEditingStyleDelete;
- }
- */
-
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section==0 && indexPath.row==0) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Caravaggio_-_Fanciullo_con_canestro_di_frutta.jpg"]];
+    }
+        else if(indexPath.section==0 && indexPath.row==1) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Lucas_Cranach_the_Elder-Adam_and_Eve_1533.jpg"]];
+        }
+        else if(indexPath.section==0 && indexPath.row==2) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg"]];
+        
+        }
+        else if(indexPath.section==0 && indexPath.row==3) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:%C3%89douard_Manet_-_Le_D%C3%A9jeuner_sur_l%27herbe.jpg"]];
+            
+        }
+        else if(indexPath.section==0 && indexPath.row==4) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Creaci%C3%B3n_de_Ad%C3%A1n.jpg"]];
+            
+        }
+}
 
 @end
