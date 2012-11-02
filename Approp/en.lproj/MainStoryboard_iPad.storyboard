@@ -35,7 +35,11 @@
                                             <segue destination="NGk-bQ-3in" kind="modal" id="3Kz-fK-z3h"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="About" id="nOC-88-OeN"/>
+                                    <barButtonItem title="About" id="nOC-88-OeN">
+                                        <connections>
+                                            <segue destination="HbD-uX-Rll" kind="modal" id="xCT-dU-FfV"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -56,7 +60,66 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yro-6b-6hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-258" y="-81"/>
+            <point key="canvasLocation" x="-698" y="199"/>
+        </scene>
+        <!--Approp Ref Controller - Root View Controller-->
+        <scene sceneID="Ixg-r8-MOo">
+            <objects>
+                <tableViewController id="Sy7-Yc-ppZ" customClass="AppropRefController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rwK-w7-PvS">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="z8e-SE-c5B" detailTextLabel="0Nt-vr-z2a" style="IBUITableViewCellStyleSubtitle" id="S2c-TR-Pq6">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8e-SE-c5B">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="0.91063456629999995" green="0.061520355069999998" blue="0.87724637220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Nt-vr-z2a">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="wlA-CN-6sh">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="eL2-Gs-Fvu">
+                            <connections>
+                                <segue destination="q55-2u-U2c" kind="modal" id="Fdt-jb-YiH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBe-T5-ry6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="1228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HOg-mK-INx">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="HbD-uX-Rll" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pAR-tO-p6T">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Sy7-Yc-ppZ" kind="relationship" relationship="rootViewController" id="88n-ri-Mzc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iqm-Bf-Rxu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324" y="1242"/>
         </scene>
         <!--Approp Reference Controller-->
         <scene sceneID="quh-Mz-mqt">
@@ -100,12 +163,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZI-Rp-Kwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="-483"/>
+            <point key="canvasLocation" x="416" y="-371"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AppropRefController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropRefController.h"/>
+        </class>
+        <class className="AppropReferenceController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropReferenceController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="AppropViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="useCamera:"/>
+                <relationship kind="action" name="useCameraRoll:"/>
+                <relationship kind="action" name="useCanvasButton:"/>
+                <relationship kind="action" name="useReferenceButton:"/>
+                <relationship kind="action" name="useShareButton:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fdt-jb-YiH"/>
+    </inferredMetricsTieBreakers>
 </document>

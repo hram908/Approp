@@ -106,31 +106,56 @@
             </objects>
             <point key="canvasLocation" x="232" y="-167"/>
         </scene>
-        <!--Table View Controller - Reference-->
+        <!--Approp Ref Controller - Reference-->
         <scene sceneID="LhT-UY-Gr0">
             <objects>
-                <tableViewController id="irb-ez-wx8" sceneMemberID="viewController">
+                <tableViewController id="irb-ez-wx8" customClass="AppropRefController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6ep-lZ-DhG">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="URk-Ct-E6G">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="W32-35-gNM" detailTextLabel="srY-ZS-Htg" style="IBUITableViewCellStyleSubtitle" id="URk-Ct-E6G">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W32-35-gNM">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="0.91063456629999995" green="0.061520355069999998" blue="0.87724637220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srY-ZS-Htg">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="irb-ez-wx8" id="Dvo-dI-dZT"/>
+                            <outlet property="delegate" destination="irb-ez-wx8" id="BhO-ix-XFx"/>
+                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Reference" id="25s-Ma-laW"/>
+                    <navigationItem key="navigationItem" title="Reference" id="25s-Ma-laW">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="8tT-c0-lca">
+                            <connections>
+                                <segue destination="kQS-c5-iu3" kind="modal" id="asb-rT-Vt9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="view" destination="6ep-lZ-DhG" id="ABH-Kz-Jel"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5E-jN-ioL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="549"/>
+            <point key="canvasLocation" x="746" y="549"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b2H-xW-8Gc">
@@ -148,9 +173,37 @@
             <point key="canvasLocation" x="226" y="549"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AppropRefController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropRefController.h"/>
+        </class>
+        <class className="AppropReferenceController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropReferenceController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="AppropViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="useCamera:"/>
+                <relationship kind="action" name="useCameraRoll:"/>
+                <relationship kind="action" name="useCanvasButton:"/>
+                <relationship kind="action" name="useReferenceButton:"/>
+                <relationship kind="action" name="useShareButton:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="asb-rT-Vt9"/>
+    </inferredMetricsTieBreakers>
 </document>

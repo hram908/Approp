@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6017CFD21644256400F9F4FB /* AppropRefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6017CFD11644256400F9F4FB /* AppropRefController.m */; };
 		605719C91632F7630099CABB /* libShareKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 605719811632F6890099CABB /* libShareKit.a */; };
 		605719CA1632F7A60099CABB /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 605719831632F6890099CABB /* ShareKit.bundle */; };
 		609D0FB51632949700E08660 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 609D0FB41632949700E08660 /* UIKit.framework */; };
@@ -316,6 +317,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6017CFD01644256400F9F4FB /* AppropRefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppropRefController.h; sourceTree = "<group>"; };
+		6017CFD11644256400F9F4FB /* AppropRefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppropRefController.m; sourceTree = "<group>"; };
 		605719541632F6890099CABB /* ShareKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShareKit.xcodeproj; path = Submodules/ShareKit/ShareKit.xcodeproj; sourceTree = "<group>"; };
 		605719CB1632FC210099CABB /* AppropSHKConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppropSHKConfigurator.h; sourceTree = "<group>"; };
 		605719CC1632FC210099CABB /* AppropSHKConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppropSHKConfigurator.m; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 				609D0FCF1632949800E08660 /* MainStoryboard_iPad.storyboard */,
 				609D0FD21632949800E08660 /* AppropViewController.h */,
 				609D0FD31632949800E08660 /* AppropViewController.m */,
+				6017CFD01644256400F9F4FB /* AppropRefController.h */,
+				6017CFD11644256400F9F4FB /* AppropRefController.m */,
 				609D0FD51632949800E08660 /* AppropReferenceController.h */,
 				609D0FD61632949800E08660 /* AppropReferenceController.m */,
 				609D0FBB1632949800E08660 /* Supporting Files */,
@@ -925,6 +930,7 @@
 				609D0FC51632949800E08660 /* AppropAppDelegate.m in Sources */,
 				609D0FD41632949800E08660 /* AppropViewController.m in Sources */,
 				609D0FD71632949800E08660 /* AppropReferenceController.m in Sources */,
+				6017CFD21644256400F9F4FB /* AppropRefController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
