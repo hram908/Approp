@@ -15,8 +15,8 @@
     BOOL newMedia;
 }
 
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) UIPopoverController *popoverController;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) UIPopoverController *popover;
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, strong) UIActionSheet *shareSheet;
 @property (nonatomic, strong) UIBarButtonItem *canvasButton;

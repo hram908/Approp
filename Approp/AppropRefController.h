@@ -10,6 +10,6 @@
 
 @interface AppropRefController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, retain) NSArray *paintingsArray;
+@property (nonatomic, strong) NSArray *paintingsArray;
 
 @end

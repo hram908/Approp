@@ -18,33 +18,21 @@
 
 @implementation AppropViewController
 
-@synthesize imageView, actionSheet, shareSheet, popoverController, canvasButton, cameraButton, cameraRollButton, shareButton;
-
-
-/*
-- (void)awakeFromNib
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
-    [super awakeFromNib];
-}
-*/
-
-- (void)viewDidAppear:(BOOL)animated
-{   
-    [super viewDidLoad];
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewDidLoad
+{   
+    [super viewDidLoad];
+}
+
 
 #pragma mark - Canvas Button
 
-// Method for camera
 - (IBAction) useCamera: (id)sender{
     if([UIImagePickerController isSourceTypeAvailable:
         UIImagePickerControllerSourceTypeCamera])
@@ -63,31 +51,26 @@
 }
 
 
-// Method for camera library
-    
-
--(void)useCameraRoll:(id)sender {
+-(IBAction)useCameraRoll:(id)sender {
     
     // For iPad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if ([self.popoverController isPopoverVisible]) {
-            [self.popoverController dismissPopoverAnimated:YES];
+        if ([self.popover isPopoverVisible]) {
+            [self.popover dismissPopoverAnimated:YES];
         } else {
             if ([UIImagePickerController isSourceTypeAvailable:
                  UIImagePickerControllerSourceTypeSavedPhotosAlbum])
             {
-                
                 UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
                 imagePicker.delegate = self;
                 imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                 imagePicker.mediaTypes = [NSArray arrayWithObjects: (NSString *) kUTTypeImage, nil];
                 imagePicker.allowsEditing = NO;
-                self.popoverController = [[UIPopoverController alloc]
+                self.popover = [[UIPopoverController alloc]
                                           initWithContentViewController:imagePicker];
-                popoverController.delegate = self;
-                [self.popoverController presentPopoverFromBarButtonItem:cameraRollButton
-                                               permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                               animated:YES];
+                _popover.delegate = self;
+                [self.popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+                //[self.popover presentPopoverFromRect:CGRectMake(20,200,300,300) inView:self.view  permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES ];
                 newMedia = NO;
             }
         }
@@ -97,8 +80,7 @@
         if ([UIImagePickerController isSourceTypeAvailable:
              UIImagePickerControllerSourceTypeSavedPhotosAlbum])
         {
-            UIImagePickerController *imagePicker =
-            [[UIImagePickerController alloc] init];
+            UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
             imagePicker.delegate = self;
             imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             imagePicker.mediaTypes = [NSArray arrayWithObjects: (NSString *) kUTTypeImage, nil];
@@ -141,19 +123,18 @@
 -(void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
     // For iPad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self.popoverController dismissPopoverAnimated:true];
+        if (self.view.window != nil) {
+        [self.popover dismissPopoverAnimated:true];
+        }
     }
-     
-    // iPad and iPhone
     [picker dismissModalViewControllerAnimated:YES];
     picker = nil;
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
     // Keep aspect ration in tact between iPhone and iPad
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self dismissModalViewControllerAnimated:YES];
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         // Assume the image is in portrait mode
         UIImage * PortraitImage = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -163,7 +144,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [[UIImage alloc] initWithCGImage: PortraitImage.CGImage
                                        scale: 1.0
                                  orientation: UIImageOrientationRight];
-            imageView.image = LandscapeImage;
+            _imageView.image = LandscapeImage;
             if (newMedia)
                 UIImageWriteToSavedPhotosAlbum(LandscapeImage,
                                                self,
@@ -171,7 +152,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                                nil);
         }
         else {
-            imageView.image = PortraitImage;
+            _imageView.image = PortraitImage;
         }
         if (newMedia)
             UIImageWriteToSavedPhotosAlbum(PortraitImage,
@@ -201,37 +182,20 @@ finishedSavingWithError:(NSError *)error
 
 // Method for share button action sheet
 -(IBAction) useShareButton: (id) sender {
-	SHKItem *item = [SHKItem image:imageView.image title:@"Appropriator"];
+	SHKItem *item = [SHKItem image:_imageView.image title:@"Appropriator"];
 	SHKActionSheet *sharedSheet = [SHKActionSheet actionSheetForItem:item];
 	[SHK setRootViewController:self];
     sharedSheet.actionSheetStyle = UIActionSheetStyleDefault;
     [sharedSheet showFromBarButtonItem:sender animated:YES];
 }
 
-/*
-#pragma mark - Reference Button
-
-// Method for Reference Button
--(IBAction) useReferenceButton: (id) sender {
-    
-}
-*/
-
 
 #pragma mark: overandout
 
 - (void)viewDidUnload {
     self.imageView = nil;
-    self.popoverController = nil;
+    self.popover = nil;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-       // NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-       // NSDate *object = _objects[indexPath.row];
-       // [[segue destinationViewController] setDetailItem:object];
-    }
-}
 
 @end
