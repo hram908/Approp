@@ -58,6 +58,11 @@
     return self.paintingsArray.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 120;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Cell
@@ -66,13 +71,34 @@
     
     // Call the info from the paintings.plist and distribute to cells
     NSDictionary *paintingsInfo = [self.paintingsArray objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [paintingsInfo objectForKey:@"name"];
-    cell.detailTextLabel.text = [paintingsInfo objectForKey:@"link"];
+    /*
     UIImage *image = [UIImage imageNamed:[paintingsInfo objectForKey:@"image"]];
     cell.imageView.image = image;
+    */
+    
+    UIImageView *paintingsImage = (UIImageView *)[cell viewWithTag:100];
+    paintingsImage.image = [UIImage imageNamed:[paintingsInfo objectForKey:@"image"]];
+    /*
+     cell.imageView.image = image;
+    
+    UIImageView *paintingsImage = (UIImageView *)[cell viewWithTag:100];
+    paintingsImage.image = [paintingsInfo objectForKey:@"image"];
+    */
     
     
+    UILabel *paintingArtist = (UILabel *)[cell viewWithTag:101];
+    paintingArtist.text = [paintingsInfo objectForKey:@"name"];
+    
+    UILabel *paintingTitle = (UILabel *)[cell viewWithTag:102];
+    paintingTitle.text = [paintingsInfo objectForKey:@"title"];
+    
+    
+    //cell.detailTextLabel.text = [paintingsInfo objectForKey:@"title"];
+     
+    
+    
+    
+        
     return cell;
 }
 

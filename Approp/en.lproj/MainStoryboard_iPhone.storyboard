@@ -63,26 +63,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="W32-35-gNM" detailTextLabel="srY-ZS-Htg" style="IBUITableViewCellStyleSubtitle" id="URk-Ct-E6G">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleAspectFit" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="120" id="URk-Ct-E6G">
+                                <rect key="frame" x="0.0" y="22" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W32-35-gNM">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luE-ea-wx5">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="8JS-Cw-ach"/>
+                                                <constraint firstAttribute="width" constant="100" id="d10-7i-dP6"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-Dq-ElY">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="188" id="UVa-mt-HLg"/>
+                                                <constraint firstAttribute="height" constant="21" id="WG2-bw-yY6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srY-ZS-Htg">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Sv-GVi">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="57" id="BEF-Iu-Aps"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="LZV-Sv-GVi" firstAttribute="top" secondItem="URk-Ct-E6G" secondAttribute="top" constant="48" id="Aaw-0K-7id"/>
+                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="trailing" secondItem="LZV-Sv-GVi" secondAttribute="trailing" type="default" id="F81-ix-W3v"/>
+                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="leading" secondItem="URk-Ct-E6G" secondAttribute="leading" constant="122" id="Koy-Sh-DzD"/>
+                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="top" secondItem="luE-ea-wx5" secondAttribute="top" type="default" id="PnO-Bh-VHI"/>
+                                    <constraint firstItem="luE-ea-wx5" firstAttribute="centerY" secondItem="URk-Ct-E6G" secondAttribute="centerY" type="default" id="XFm-ep-Il1"/>
+                                    <constraint firstItem="luE-ea-wx5" firstAttribute="leading" secondItem="URk-Ct-E6G" secondAttribute="leading" constant="10" id="rM6-tN-QN8"/>
+                                    <constraint firstItem="LZV-Sv-GVi" firstAttribute="leading" secondItem="UHP-Dq-ElY" secondAttribute="leading" type="default" id="tWf-OQ-2rq"/>
+                                </constraints>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -121,6 +143,24 @@
             <point key="canvasLocation" x="166" y="289"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AppropRefController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropRefController.h"/>
+        </class>
+        <class className="AppropViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="useCamera:"/>
+                <relationship kind="action" name="useCameraRoll:"/>
+                <relationship kind="action" name="useCanvasButton:"/>
+                <relationship kind="action" name="useShareButton:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

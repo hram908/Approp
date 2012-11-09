@@ -167,8 +167,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 finishedSavingWithError:(NSError *)error
  contextInfo:(void *)contextInfo {
     if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Save failed"
                               message: @"Failed to save image"\
                               delegate: nil
                               cancelButtonTitle:@"OK"
