@@ -58,8 +58,8 @@
     return self.paintingsArray.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{    
     return 120;
 }
 
@@ -71,34 +71,16 @@
     
     // Call the info from the paintings.plist and distribute to cells
     NSDictionary *paintingsInfo = [self.paintingsArray objectAtIndex:indexPath.row];
-    /*
-    UIImage *image = [UIImage imageNamed:[paintingsInfo objectForKey:@"image"]];
-    cell.imageView.image = image;
-    */
     
     UIImageView *paintingsImage = (UIImageView *)[cell viewWithTag:100];
     paintingsImage.image = [UIImage imageNamed:[paintingsInfo objectForKey:@"image"]];
-    /*
-     cell.imageView.image = image;
-    
-    UIImageView *paintingsImage = (UIImageView *)[cell viewWithTag:100];
-    paintingsImage.image = [paintingsInfo objectForKey:@"image"];
-    */
-    
-    
+
     UILabel *paintingArtist = (UILabel *)[cell viewWithTag:101];
     paintingArtist.text = [paintingsInfo objectForKey:@"name"];
     
     UILabel *paintingTitle = (UILabel *)[cell viewWithTag:102];
     paintingTitle.text = [paintingsInfo objectForKey:@"title"];
-    
-    
-    //cell.detailTextLabel.text = [paintingsInfo objectForKey:@"title"];
-     
-    
-    
-    
-        
+ 
     return cell;
 }
 
@@ -115,15 +97,12 @@
     }
     else if(indexPath.section==0 && indexPath.row==2) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg"]];
-        
     }
     else if(indexPath.section==0 && indexPath.row==3) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:%C3%89douard_Manet_-_Le_D%C3%A9jeuner_sur_l%27herbe.jpg"]];
-        
     }
     else if(indexPath.section==0 && indexPath.row==4) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Creaci%C3%B3n_de_Ad%C3%A1n.jpg"]];
-        
     }
 }
 
