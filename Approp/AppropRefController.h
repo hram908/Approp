@@ -12,4 +12,7 @@
 
 @property (nonatomic, strong) NSArray *paintingsArray;
 
+
+-(IBAction)backToAppropView:(id)sender;
+
 @end

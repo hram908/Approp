@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kQS-c5-iu3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="kQS-c5-iu3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -10,14 +10,14 @@
                 <viewController id="kQS-c5-iu3" customClass="AppropViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bOH-ex-mMv">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eU-ug-8LH">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="548" id="vJZ-Jy-c4E"/>
-                                </constraints>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" id="2eU-ug-8LH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6T-iz-b7x">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Z6T-iz-b7x">
+                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="fixedSpace" id="Pkr-lh-WuS"/>
                                     <barButtonItem title="Art" id="3DO-C6-jhE"/>
@@ -40,19 +40,14 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2eU-ug-8LH" firstAttribute="top" secondItem="bOH-ex-mMv" secondAttribute="top" constant="-34" id="1eO-nq-oDJ"/>
-                            <constraint firstItem="Z6T-iz-b7x" firstAttribute="bottom" secondItem="bOH-ex-mMv" secondAttribute="bottom" type="default" id="NHn-rI-0r2"/>
-                            <constraint firstItem="2eU-ug-8LH" firstAttribute="trailing" secondItem="bOH-ex-mMv" secondAttribute="trailing" type="default" id="dt0-1T-CqS"/>
-                            <constraint firstItem="2eU-ug-8LH" firstAttribute="leading" secondItem="bOH-ex-mMv" secondAttribute="leading" type="default" id="iy3-q2-qBP"/>
-                            <constraint firstItem="Z6T-iz-b7x" firstAttribute="trailing" secondItem="bOH-ex-mMv" secondAttribute="trailing" type="default" id="nK3-e7-tgV"/>
-                            <constraint firstItem="Z6T-iz-b7x" firstAttribute="leading" secondItem="bOH-ex-mMv" secondAttribute="leading" type="default" id="ur5-8p-AAI"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="2eU-ug-8LH" id="1BA-Yf-cmj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ab-TV-HDy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-463" y="230"/>
+            <point key="canvasLocation" x="-525" y="162"/>
         </scene>
         <!--Approp Ref Controller - Reference-->
         <scene sceneID="LhT-UY-Gr0">
@@ -70,25 +65,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luE-ea-wx5">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="8JS-Cw-ach"/>
-                                                <constraint firstAttribute="width" constant="100" id="d10-7i-dP6"/>
-                                            </constraints>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" id="luE-ea-wx5">
+                                            <rect key="frame" x="10" y="10" width="100" height="100"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-Dq-ElY">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="188" id="UVa-mt-HLg"/>
-                                                <constraint firstAttribute="height" constant="21" id="WG2-bw-yY6"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UHP-Dq-ElY">
+                                            <rect key="frame" x="122" y="10" width="188" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Sv-GVi">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="57" id="BEF-Iu-Aps"/>
-                                            </constraints>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LZV-Sv-GVi">
+                                            <rect key="frame" x="122" y="48" width="188" height="57"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -96,15 +83,6 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="LZV-Sv-GVi" firstAttribute="top" secondItem="URk-Ct-E6G" secondAttribute="top" constant="48" id="Aaw-0K-7id"/>
-                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="trailing" secondItem="LZV-Sv-GVi" secondAttribute="trailing" type="default" id="F81-ix-W3v"/>
-                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="leading" secondItem="URk-Ct-E6G" secondAttribute="leading" constant="122" id="Koy-Sh-DzD"/>
-                                    <constraint firstItem="UHP-Dq-ElY" firstAttribute="top" secondItem="luE-ea-wx5" secondAttribute="top" type="default" id="PnO-Bh-VHI"/>
-                                    <constraint firstItem="luE-ea-wx5" firstAttribute="centerY" secondItem="URk-Ct-E6G" secondAttribute="centerY" type="default" id="XFm-ep-Il1"/>
-                                    <constraint firstItem="luE-ea-wx5" firstAttribute="leading" secondItem="URk-Ct-E6G" secondAttribute="leading" constant="10" id="rM6-tN-QN8"/>
-                                    <constraint firstItem="LZV-Sv-GVi" firstAttribute="leading" secondItem="UHP-Dq-ElY" secondAttribute="leading" type="default" id="tWf-OQ-2rq"/>
-                                </constraints>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -143,24 +121,6 @@
             <point key="canvasLocation" x="166" y="289"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AppropRefController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropRefController.h"/>
-        </class>
-        <class className="AppropViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppropViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="useCamera:"/>
-                <relationship kind="action" name="useCameraRoll:"/>
-                <relationship kind="action" name="useCanvasButton:"/>
-                <relationship kind="action" name="useShareButton:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

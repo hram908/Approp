@@ -44,6 +44,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)backToAppropView:(id)sender
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -105,5 +110,7 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://en.wikipedia.org/wiki/File:Creaci%C3%B3n_de_Ad%C3%A1n.jpg"]];
     }
 }
+
+
 
 @end

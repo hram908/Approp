@@ -22,6 +22,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
 }
 
 
@@ -30,6 +31,36 @@
     [super viewDidLoad];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (self.imageView.image)
+    {
+        // Use a block here so that the image doesn't hiccup
+        __block UIImage *image = self.imageView.image;
+        dispatch_async(dispatch_queue_create("com.doubledi", NULL),^(void) {
+            
+            NSData *imageData = UIImagePNGRepresentation(image);
+            [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"imageData"];
+        }
+        );
+    
+    }
+    
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imageData = [defaults objectForKey:@"imageData"];
+    if(imageData && !self.imageView.image)
+    {
+        self.imageView.image = [UIImage imageWithData:imageData];
+    }
+    [super viewDidAppear:animated];
+    
+}
 
 #pragma mark - Canvas Button
 
@@ -69,7 +100,7 @@
                 self.popover = [[UIPopoverController alloc]
                                           initWithContentViewController:imagePicker];
                 _popover.delegate = self;
-                [self.popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+                [self.popover presentPopoverFromBarButtonItem:self.canvasButton permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
                 //[self.popover presentPopoverFromRect:CGRectMake(20,200,300,300) inView:self.view  permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES ];
                 newMedia = NO;
             }
@@ -134,7 +165,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     
     // Keep aspect ration in tact between iPhone and iPad
-    _imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
         // Assume the image is in portrait mode
         UIImage * PortraitImage = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -144,7 +175,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
             [[UIImage alloc] initWithCGImage: PortraitImage.CGImage
                                        scale: 1.0
                                  orientation: UIImageOrientationRight];
-            _imageView.image = LandscapeImage;
+            self.imageView.image = LandscapeImage;
             if (newMedia)
                 UIImageWriteToSavedPhotosAlbum(LandscapeImage,
                                                self,
@@ -152,7 +183,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
                                                nil);
         }
         else {
-            _imageView.image = PortraitImage;
+            self.imageView.image = PortraitImage;
         }
         if (newMedia)
             UIImageWriteToSavedPhotosAlbum(PortraitImage,

@@ -16,10 +16,10 @@
 }
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (nonatomic, weak) UIPopoverController *popover;
+@property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, strong) UIActionSheet *shareSheet;
-@property (nonatomic, strong) UIBarButtonItem *canvasButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *canvasButton;
 @property (nonatomic, strong) UIBarButtonItem *cameraButton;
 @property (nonatomic, strong) UIBarButtonItem *cameraRollButton;
 @property (nonatomic, strong) UIBarButtonItem *shareButton;
